@@ -1,0 +1,72 @@
+[
+    {
+        "store_number": "1",
+        "store_name": "Vancouver North",
+        "city": "Vancouver",
+        "todays_sales": "$1,241",
+        "weeks_sales": "$8,231"
+    },
+    {
+        "store_number": "2",
+        "store_name": "Vancouver South",
+        "city": "Vancouver",
+        "todays_sales": "$2,243",
+        "weeks_sales": "$5,202"
+    },
+    {
+        "store_number": "3",
+        "store_name": "Toronto North",
+        "city": "Toronto",
+        "todays_sales": "$1,342",
+        "weeks_sales": "$5,413"
+    },
+    {
+        "store_number": "4",
+        "store_name": "Toronto South",
+        "city": "Toronto",
+        "todays_sales": "$923",
+        "weeks_sales": "$1,241"
+    },
+    {
+        "store_number": "5",
+        "store_name": "Calgary West",
+        "city": "Calgary",
+        "todays_sales": "$82.32",
+        "weeks_sales": "$2,432"
+    },
+    {
+        "store_number": "6",
+        "store_name": "Edmonton West",
+        "city": "Edmonton",
+        "todays_sales": "$1,241",
+        "weeks_sales": "$8,231"
+    },
+    {
+        "store_number": "7",
+        "store_name": "Winnipeg East",
+        "city": "Winnipeg",
+        "todays_sales": "$8,231",
+        "weeks_sales": "$7,132.12"
+    },
+    {
+        "store_number": "8",
+        "store_name": "Banff",
+        "city": "Banff",
+        "todays_sales": "$1",
+        "weeks_sales": "$12,323"
+    },
+    {
+        "store_number": "9",
+        "store_name": "Whistler",
+        "city": "Whistler",
+        "todays_sales": "$8,231",
+        "weeks_sales": "$11,111"
+    },
+    {
+        "store_number": "10",
+        "store_name": "Jasper",
+        "city": "Jasper",
+        "todays_sales": "$3,241",
+        "weeks_sales": "$56,231"
+    }
+]

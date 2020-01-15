@@ -1,0 +1,68 @@
+[
+    {
+        "employee_number": "120",
+        "name": "Norma Gray",
+        "todays_sales": "$1,241",
+        "weeks_sales": "$8,231"
+    },
+    {
+        "employee_number": "121",
+        "name": "Brent Scott",
+        "todays_sales": "$2,243",
+        "weeks_sales": "$10,021"
+    },
+    {
+        "employee_number": "122",
+        "name": "Ethel Bryan",
+        "todays_sales": "$1,241",
+        "weeks_sales": "$8,231"
+    },
+    {
+        "employee_number": "123",
+        "name": "Juanita Grant",
+        "todays_sales": "$1,241",
+        "weeks_sales": "$8,231"
+    },
+    {
+        "employee_number": "124",
+        "name": "Karen Holt",
+        "todays_sales": "$1,241",
+        "weeks_sales": "$8,231"
+    },
+    {
+        "employee_number": "125",
+        "name": "Benny Nguyen",
+        "todays_sales": "$1,241",
+        "weeks_sales": "$8,231"
+    },
+    {
+        "employee_number": "126",
+        "name": "Maxine Hopkins",
+        "todays_sales": "$1,241",
+        "weeks_sales": "$8,231"
+    },
+    {
+        "employee_number": "127",
+        "name": "Lana Rose",
+        "todays_sales": "$1,241",
+        "weeks_sales": "$8,231"
+    },
+    {
+        "employee_number": "128",
+        "name": "Guadalupe Harrison",
+        "todays_sales": "$1,241",
+        "weeks_sales": "$8,231"
+    },
+    {
+        "employee_number": "129",
+        "name": "Roberto Quinn",
+        "todays_sales": "$1,241",
+        "weeks_sales": "$8,231"
+    },
+    {
+        "employee_number": "130",
+        "name": "Joe Schmoe from Idaho",
+        "todays_sales": "$1,241",
+        "weeks_sales": "$8,231"
+    }
+]
