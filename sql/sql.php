@@ -22,7 +22,7 @@
             print 'Error ' . mysqli_error();
         }
 
-        return $arr;
+        return json_encode($arr);
     }
 
     function addUser()

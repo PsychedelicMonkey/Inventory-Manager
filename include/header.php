@@ -6,6 +6,9 @@ if (!isset($_SESSION['uid']) && !isset($_SESSION['username']))
     exit();
 }
 ?>
+<?php
+include_once ('global.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -14,7 +17,7 @@ if (!isset($_SESSION['uid']) && !isset($_SESSION['username']))
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="<?php print DOMAIN; ?>/css/style.css">
     </head>
     <body>
         <div class="topbar">
@@ -29,18 +32,18 @@ if (!isset($_SESSION['uid']) && !isset($_SESSION['username']))
             <ul>
             <?php
                 $items = array(
-                    array('Dashboard', 'tachometer', 'dashboard.php'),
+                    array('Dashboard', 'tachometer', DOMAIN . '/dashboard.php'),
                     array('Notifications', 'bell'),
                     array('Messages', 'envelope'),
                     array('My Profile', 'user'),
-                    array('Manage Users', 'users'),
+                    array('Manage Users', 'users', DOMAIN . '/users/manage_users.php'),
                     array('Vendors', 'diamond'),
                     array('Products', 'tags'),
                     array('Stores', 'shopping-bag'),
                     array('Orders', 'truck'),
                     array('Stats', 'bar-chart'),
                     array('Settings', 'cog'),
-                    array('Log Out', 'sign-out', 'logout.php')
+                    array('Log Out', 'sign-out', DOMAIN . '/logout.php')
                 );
 
                 for ($i = 0; $i < sizeof($items); $i++)

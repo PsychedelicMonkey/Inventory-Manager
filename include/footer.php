@@ -43,10 +43,12 @@
             if ($('.navbar:eq(0)').is(':visible')) {
                 $('.topbar:eq(0)').css('marginLeft', $('.navbar:eq(0)').width());
                 $('.body:eq(0)').css('marginLeft', $('.navbar:eq(0)').width());
+                $('.footer:eq(0)').css('marginLeft', $('.navbar:eq(0)').width());
             }
             else if ($('.navbar:eq(0)').width() < 1300) {
                 $('.topbar:eq(0)').css('marginLeft', 0);
                 $('.body:eq(0)').css('marginLeft', 0);
+                $('.footer:eq(0)').css('marginLeft', 0);
             }
         });
 
@@ -64,6 +66,6 @@
             }
         }
         </script>
-        <?php closeMySQL(); ?>
     </body>
 </html>
+<?php closeMySQL(); ?>
