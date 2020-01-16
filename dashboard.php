@@ -3,7 +3,6 @@ define ('PAGE', 'Dashboard');
 include_once ('include/header.php');
 include_once ('include/tables.php');
 ?>
-        <div class="body">
             <div id="modal" class="modal">
                 <div class="modal-wrapper">
                     <span class="close">&times;</span>
@@ -69,7 +68,7 @@ include_once ('include/tables.php');
                     ?>
                 </div><!-- End Section -->
                 <button id="display-form" type="button" name="button">Sign Up Form</button>
-            </div><!-- End body-wrapper -->
+            </div>
 <?php
 include_once ('include/footer.php');
 ?>

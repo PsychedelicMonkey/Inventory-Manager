@@ -31,6 +31,7 @@ include_once ('global.php');
             </div>
             <ul>
             <?php
+                $link = "";
                 $items = array(
                     array('Dashboard', 'tachometer', DOMAIN . '/dashboard.php'),
                     array('Notifications', 'bell'),
@@ -49,10 +50,20 @@ include_once ('global.php');
                 for ($i = 0; $i < sizeof($items); $i++)
                 {
                     $active = "";
-                    (defined('PAGE') && PAGE == $items[$i][0]) ? $active = "active" : $active = "";
+                    if (defined('PAGE') && PAGE == $items[$i][0]) 
+                    {
+                        $active = "active";
+                        $link = $items[$i][2];
+                    }
+                    else
+                        $active = "";
                     echo "<li><a class=\"menu-item $active\" href=\"{$items[$i][2]}\"><i class=\"menu-icon fa fa-fw fa-{$items[$i][1]}\"></i> {$items[$i][0]}</a></li>";
                 }
             ?>
             </ul>
         </div>
-     
+        <div class="body">
+            <div class="directory">
+                <a href="<?php print $link; ?>"><?php print PAGE; ?></a>
+                <?php (defined('SUB_PAGE') ? print '<span class="sub-page"> / ' . SUB_PAGE . '</span>' : print '') ?>
+            </div>

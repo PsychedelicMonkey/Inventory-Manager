@@ -239,6 +239,28 @@ form {
     border: 1px solid #ccc;
 }
 
+.directory {
+    overflow: hidden;
+    bottom: 0;
+    width: 100%;
+    background-color: #ddd;
+    padding: 18px 14px;
+    border: 1px solid #ccc;
+}
+
+.directory a {
+    color: rgb(0, 0, 202);
+    font-size: 18px;
+}
+
+.directory .sub-page {
+    font-size: 18px;
+}
+
+.directory a:hover {
+    border-bottom: 1px dotted rgb(0, 0, 202);
+}
+
 .card-column {
     float: left;
     width: 25%;
@@ -341,6 +363,7 @@ table {
     border: 1px solid black;
     width: 100%;
     text-align: left;
+    margin-bottom: 12px;
 }
 
 td, th {
@@ -365,6 +388,20 @@ tr:nth-child(even) {
 .sort:hover {
     cursor: pointer;
     opacity: 100%;
+}
+
+.table-edit {
+    padding: 8px;
+    margin: auto;
+    background-color: rgb(112, 112, 252);
+    font-size: 24px;
+    text-align: center;
+    transition: 0.3s all 0s ease;
+}
+
+.table-edit:hover {
+    opacity: 0.7;
+    border: none;
 }
 
 /*
@@ -392,6 +429,18 @@ body.dark {
 
 .dark .navbar li a:hover:not(.active) {
     background-color: #393e46;
+}
+
+.dark .directory {
+    background-color: #222831;
+}
+
+.dark .directory a {
+    color: rgb(176, 176, 253);
+}
+
+.dark .directory a:hover {
+    border-bottom: 1px dotted rgb(176, 176, 253);
 }
 
 .dark .footer {
