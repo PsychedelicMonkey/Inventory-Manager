@@ -43,11 +43,32 @@ include_once ('../include/header.php');
             <input type="text" id="form-username" name="username" placeholder="Username">
             <span id="username-error" class="error"></span>
             <input type="password" id="form-password" name="password" placeholder="Password">
+            <span id="password-error" class="error"></span>
             <input type="password" id="form-confirm-password" name="confirm-password" placeholder="Confirm Password">
+            <span id="password-confirm-error" class="error"></span>
             <input type="submit" name="submit" value="Create User">
         </form>
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+    $('#form-username').focusout(function() {
+        validateName(this);
+    });
+    
+    $('#form-password').focusout(function() {
+        validatePassword(this);
+    });
+
+    $('#form-confirm-password').focusout(function() {
+        confirmPassword(this);
+    });
+
+    $('form').submit(function(e) {
+        return validateName($('#form-username')) && validatePassword($('#form-password')) && confirmPassword($('#form-confirm-password'));
+    });
+});
+</script>
 <script src="<?php print DOMAIN; ?>/js/form.js" type="text/javascript"></script>
 
 <?php

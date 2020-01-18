@@ -228,6 +228,10 @@ form {
     font-weight: bold;
 }
 
+.error:last-of-type {
+    margin-bottom: 12px;
+}
+
 .footer {
     display: flex;
     justify-content: space-between;
