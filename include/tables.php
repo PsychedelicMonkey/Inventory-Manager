@@ -54,7 +54,8 @@
             {
                 print '<td>' . $value . '</td>';
             }
-            print '<td><a class="table-edit" href="edit_user.php?uid=' . $json[$i]['uid'] . '&username=' . $json[$i]['username'] . '"><i class="fa fa-fw fa-edit"></i></a></td>';
+            print '<td><a class="table-edit" href="edit_user.php?uid=' . $json[$i]['uid'] . '&username=' . $json[$i]['username'] . '"><i class="fa fa-fw fa-edit"></i></a>
+                    <a class="table-edit table-delete" href="delete_user.php?uid=' . $json[$i]['uid'] . '&username=' . $json[$i]['username'] . '"><i class="fa fa-fw fa-trash"></i></a></td>';
             print '</tr>';
         }
         print '</tbody></table>';

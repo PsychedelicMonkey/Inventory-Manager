@@ -23,6 +23,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             $test_pass = hash('ripemd128', $row['salt'] . $password);
             if ($test_pass == $row['password'])
             {
+                $update_login = "UPDATE users SET last_login_ip='{$_SERVER['REMOTE_ADDR']}', 
+                        last_login_ua='{$_SERVER['HTTP_USER_AGENT']}' WHERE uid={$row['uid']}";
+                mysqli_query($db, $update_login);
+
                 $_SESSION['username'] = $row['username'];
                 $_SESSION['uid'] = $row['uid'];
 

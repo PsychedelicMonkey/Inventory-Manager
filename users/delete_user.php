@@ -10,21 +10,22 @@ if (isset($_GET['uid']) && is_numeric($_GET['uid']) && ($_GET['uid'] > 0) && !em
         exit();
     }
     $user = mysqli_fetch_assoc($result);
-    
+
     define ('PAGE', 'Manage Users');
-    define ('SUB_PAGE', 'Edit ' . ucfirst($user['username']));
+    define ('SUB_PAGE', 'Delete ' . ucfirst($user['username']));
     include_once ('../include/header.php');
     
     $_SESSION['edit_uid'] = $user['uid'];
     $_SESSION['edit_username'] = $user['username'];
-    
+
     ?>
         <div class="body-wrapper">
             <div class="section">
-                <h2 class="section-heading">Edit <?php print ucfirst($user['username']); ?></h2>
-                <form action="edit_user.php" method="post">
-                    <input type="text" name="username" placeholder="Username" value="<?php print $user['username']; ?>">
-                    <input type="submit" name="submit" value="Submit Changes">
+                <h2 class="section-heading">Delete <?php print ucfirst($user['username']); ?></h2>
+                <form action="delete_user.php" method="post">
+                    <p class="confirmation-text">Are you sure you want to permanently delete user '<?php print $user['username']; ?>'?</p>
+                    <p class="confirmation-text">You cannot undo this action.</p>
+                    <input type="submit" name="submit" value="Delete this user">
                 </form>
             </div>
         </div>
@@ -40,14 +41,13 @@ else if ($_SERVER['REQUEST_METHOD'] == 'POST')
         print 'You do not have permission to access this page.';
         exit();
     }
-    
-    if (!empty($_POST['username']) && isset($_SESSION['edit_uid']))
+
+    if (isset($_SESSION['edit_uid']))
     {
-        $username = mysqli_real_escape_string($db, strip_tags($_POST['username']));
-        mysqli_query($db, "UPDATE users SET username='$username' WHERE uid={$_SESSION['edit_uid']} LIMIT 1");
+        mysqli_query($db, "DELETE FROM users WHERE uid={$_SESSION['edit_uid']}");
         if (mysqli_affected_rows($db) >= 1)
         {
-            print "User '{$_SESSION['edit_username']}' changed to '{$_POST['username']}'";
+            print "User '{$_SESSION['edit_username']}' is deleted'";
         }
         else
         {
@@ -64,6 +64,6 @@ else if ($_SERVER['REQUEST_METHOD'] == 'POST')
 }
 else
 {
-    print 'This page was accessed in error';
+    print 'test';
 }
 ?>
