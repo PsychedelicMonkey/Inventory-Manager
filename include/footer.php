@@ -5,7 +5,7 @@
         </div><!-- end body -->
         <script type="text/javascript" src="<?php print DOMAIN; ?>/js/buttons.js"></script>
         <script type="text/javascript" src="<?php print DOMAIN; ?>/js/table.js"></script>
-        <script type="text/javascript" src="<?php print DOMAIN; ?>/js/modal.js"></script>
+        <!--<script type="text/javascript" src="<?php print DOMAIN; ?>/js/modal.js"></script>-->
         <script type="text/javascript">
         var modal = document.getElementsByClassName('modal')[0];
         

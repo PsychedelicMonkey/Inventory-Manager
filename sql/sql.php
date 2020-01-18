@@ -25,22 +25,15 @@
         return json_encode($arr);
     }
 
-    function addUser()
+    function existsInDB($query)
     {
-        $username = mysqli_real_escape_string($db, strip_tags($_POST['username']));
-        $salt = mysqli_real_escape_string($db, hash('ripemd128', rand()));
-        $password = mysqli_real_escape_string($db, hash('ripemd128', $salt . strip_tags($_POST['password'])));
-
-        $query = "INSERT INTO users (username, password, salt) VALUES ('$username', '$password', '$salt')";
-        mysqli_query($db, $query);
-        if (mysqli_affected_rows($db) == 1)
+        global $db;
+        $result = mysqli_query($db, $query);
+        if (mysqli_affected_rows($db) >= 1)
         {
-            print 'success';
+            return TRUE;
         }
-        else
-        {
-            print 'failed!';
-        }
+        return FALSE;
     }
 
     function closeMySQL()

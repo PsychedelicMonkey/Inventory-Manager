@@ -404,6 +404,22 @@ tr:nth-child(even) {
     border: none;
 }
 
+.add-user {
+    color: white;
+    background-color: #34c400;
+    opacity: 0.7;
+    padding: 10px 12px;
+    transition: 0.3s all 0s ease;
+    font-size: 20px;
+}
+
+.add-user:hover {
+    opacity: 1;
+}
+
+a.add-user {
+    border: none;
+}
 /*
  * ==============================================================================
  * Dark Mode

@@ -12,7 +12,7 @@ include_once ('../sql/sql.php');
                         ['UID', 'Username']);
                 ?>
 
-                <button id="add-user">Create New User</button>
+                <a class="add-user" href="add_user.php">Add New User</a>
             </div>
         </div>
 
