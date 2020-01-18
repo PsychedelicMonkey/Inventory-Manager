@@ -14,7 +14,10 @@ if (isset($_GET['uid']) && is_numeric($_GET['uid']) && ($_GET['uid'] > 0) && !em
     define ('PAGE', 'Manage Users');
     define ('SUB_PAGE', 'Edit ' . ucfirst($user['username']));
     include_once ('../include/header.php');
+    
     $_SESSION['edit_uid'] = $user['uid'];
+    $_SESSION['edit_username'] = $user['username'];
+    
     ?>
         <div class="body-wrapper">
             <div class="section">
@@ -38,7 +41,7 @@ else if ($_SERVER['REQUEST_METHOD'] == 'POST')
         mysqli_query($db, "UPDATE users SET username='$username' WHERE uid={$_SESSION['edit_uid']} LIMIT 1");
         if (mysqli_affected_rows($db) >= 1)
         {
-            print 'success';
+            print "User '{$_SESSION['edit_username']}' changed to '{$_POST['username']}'";
         }
         else
         {
@@ -46,6 +49,7 @@ else if ($_SERVER['REQUEST_METHOD'] == 'POST')
         }
 
         $_SESSION['edit_uid'] = NULL;
+        $_SESSION['edit_username'] = NULL;
     }
     else
     {

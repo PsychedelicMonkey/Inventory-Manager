@@ -56,6 +56,11 @@ input[type=submit]:hover {
     text-align: center;
 }
 
+.error {
+    color: red;
+    font-weight: bold;
+}
+
 #remember-me {
     margin: 6px 0 6px;
 }

@@ -7,6 +7,15 @@ function validateName(username) {
     return true;
 }
 
+function loginPassword(password) {
+    if ($(password).val() == '') {
+        $('#password-error').text('Please enter a password').css('display', 'block');
+        return false;
+    }
+    $('#password-error').css('display', 'none');
+    return true;
+}
+
 function validatePassword(password) {
     if ($(password).val() == '') {
         $('#password-error').text('Please enter a password').css('display', 'block');

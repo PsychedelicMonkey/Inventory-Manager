@@ -1,16 +1,13 @@
-var sales = document.getElementById('sales-table');
-var employees = document.getElementById('employee-table');
-
-init(sales);
-init(employees);
-
 function init(table) {
     for (var i = 0; i < table.rows[0].cells.length; i++)
     {
         var tag = table.rows[0].cells[i].getElementsByTagName('i')[0];
-        tag.i = i;
-        tag.onclick = function() {
-            sortTable(table, this.i);
+        if (typeof(tag) != 'undefined')
+        {
+            tag.i = i;
+            tag.onclick = function() {
+                sortTable(table, this.i);
+            }
         }
     }
 }
@@ -97,6 +94,7 @@ function resetTags(table) {
     for (i = 0; i < table.rows[0].cells.length; i++)
     {
         var tag = table.rows[0].cells[i].getElementsByTagName('i')[0];
-        tag.className = "sort fa fa-sort";
+        if (typeof(tag) != 'undefined')
+            tag.className = "sort fa fa-sort";
     }
 }

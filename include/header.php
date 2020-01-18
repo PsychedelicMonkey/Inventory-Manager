@@ -22,7 +22,7 @@ include_once ('global.php');
     <body>
         <div class="topbar">
             <button id="open-nav"><i class="fa fa-bars"></i></button>
-            <input id="dark-mode" type="checkbox" name="darkmode"> <i style="color: white; font-style: none;">Dark Mode</i style="color: white; font-style: normal;">
+            <input id="dark-mode" type="checkbox" name="darkmode"> <i style="color: white; font-style: none;">Dark Mode</i>
         </div>
         <div class="navbar">
             <div class="profile-info">

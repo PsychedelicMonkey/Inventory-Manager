@@ -69,6 +69,13 @@ include_once ('include/tables.php');
                 </div><!-- End Section -->
                 <button id="display-form" type="button" name="button">Sign Up Form</button>
             </div>
+            <script type="text/javascript" src="<?php print DOMAIN; ?>/js/table.js"></script>
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    init(document.getElementById('sales-table'));
+                    init(document.getElementById('employee-table'));
+                });
+            </script>
 <?php
 include_once ('include/footer.php');
 ?>

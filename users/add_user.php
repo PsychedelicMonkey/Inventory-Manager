@@ -1,6 +1,13 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
+    session_start();
+    if (!isset($_SESSION['uid']) && !isset($_SESSION['username']))
+    {
+        print 'You do not have permission to access this page.';
+        exit();
+    }
+    
     if (!empty($_POST['username']) && !empty($_POST['password']) && !empty($_POST['confirm-password']))
     {
         include_once ('users.php');
