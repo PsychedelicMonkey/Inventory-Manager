@@ -8,17 +8,18 @@ if (!$db)
 }
 
 mysqli_query($db, "CREATE DATABASE IF NOT EXISTS $dbName");
+print "Database: '$dbName' created!";
 
 mysqli_query($db, "CREATE TABLE IF NOT EXISTS `$dbName`.`users` ( 
                         `uid` INT NOT NULL AUTO_INCREMENT , 
                         `username` VARCHAR(100) NOT NULL , 
                         `password` VARCHAR(100) NOT NULL , 
                         `salt` VARCHAR(100) NOT NULL , 
+                        `login_info` JSON NULL , 
                         `last_login_time` TIMESTAMP NOT NULL ,  
-                        `last_login_ip` VARCHAR(15) NULL , 
-                        `last_login_ua` VARCHAR(100) NULL , 
-                        `creation_info` JSON NOT NULL , 
+                        `creation_info` JSON NULL , 
                         PRIMARY KEY (`uid`)) ENGINE = InnoDB;");
+print '<p>Table: \'users\' created!</p>';
 
 createAdmin();
 
@@ -33,13 +34,12 @@ function createAdmin()
     $data = mysqli_fetch_assoc($result);
     if ($data['count'] <= 0)
     {
-        $query = "INSERT INTO `$dbName`.`users` (`uid`, `username`, `password`, `salt`, 
-                `last_login_time`, `last_login_ip`, `last_login_ua`, `creation_info`) 
-                VALUES (NULL, 'admin', '$password', '$salt', current_timestamp(), '', '', '')";
+        $query = "INSERT INTO `$dbName`.`users` (`uid`, `username`, `password`, `salt`, `last_login_time`) 
+                VALUES (NULL, 'admin', '$password', '$salt', current_timestamp())";
         mysqli_query($db, $query);
         if (mysqli_affected_rows($db) == 1)
         {
-            print 'Username \'admin\', Password \'password\' created';
+            print '<p>Username \'admin\', Password \'password\' created</p>';
         }
     }
     else
