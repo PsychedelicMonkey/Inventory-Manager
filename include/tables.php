@@ -41,7 +41,7 @@
         foreach ($headings as $heading)
         {
             ?>
-            <th> <?php print $heading; ?><i class="sort fa fa-sort<?php ($heading == $headings[0]) ? print '-up' : print ''; ?>"></i></th>
+            <th><?php print $heading; ?><i class="sort fa fa-sort<?php ($heading == $headings[0]) ? print '-up' : print ''; ?>"></i></th>
             <?php
         }
         print '<th>Functions</th>';
@@ -52,7 +52,10 @@
             print '<tr>';
             foreach ($json[$i] as $key => $value)
             {
-                print '<td>' . $value . '</td>';
+                if ($key == 'username')
+                    print "<td><a class=\"table-link\" href=\"view_user.php?uid={$json[$i]['uid']}&username={$json[$i]['username']}\">$value</a></td>";
+                else
+                    print '<td>' . $value . '</td>';
             }
             print '<td><a class="table-edit" href="edit_user.php?uid=' . $json[$i]['uid'] . '&username=' . $json[$i]['username'] . '"><i class="fa fa-fw fa-edit"></i></a>
                     <a class="table-edit table-delete" href="delete_user.php?uid=' . $json[$i]['uid'] . '&username=' . $json[$i]['username'] . '"><i class="fa fa-fw fa-trash"></i></a></td>';

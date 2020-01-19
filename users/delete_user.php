@@ -3,20 +3,23 @@ include_once ('../sql/sql.php');
 
 if (isset($_GET['uid']) && is_numeric($_GET['uid']) && ($_GET['uid'] > 0) && !empty($_GET['username']))
 {
-    $result = mysqli_query($db, "SELECT * FROM users WHERE uid={$_GET['uid']} AND username='{$_GET['username']}' LIMIT 1");
-    if (mysqli_affected_rows($db) != 1)
+    include_once ('users.php');
+    $user = getUser($_GET['uid'], $_GET['username']);
+
+    session_start();
+    $_SESSION['edit_uid'] = $user['uid'];
+    $_SESSION['edit_username'] = $user['username'];
+
+    // Prevent users from deleting their own accounts
+    if ($_SESSION['edit_uid'] == $_SESSION['uid'])
     {
-        print 'Unexpected error occured. Please try again';
+        print 'You cannot delete your own user account.';
         exit();
     }
-    $user = mysqli_fetch_assoc($result);
 
     define ('PAGE', 'Manage Users');
     define ('SUB_PAGE', 'Delete ' . ucfirst($user['username']));
     include_once ('../include/header.php');
-    
-    $_SESSION['edit_uid'] = $user['uid'];
-    $_SESSION['edit_username'] = $user['username'];
 
     ?>
         <div class="body-wrapper">
@@ -35,19 +38,15 @@ if (isset($_GET['uid']) && is_numeric($_GET['uid']) && ($_GET['uid'] > 0) && !em
 }
 else if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-    session_start();
-    if (!isset($_SESSION['uid']) && !isset($_SESSION['username']))
-    {
-        print 'You do not have permission to access this page.';
-        exit();
-    }
+    include_once ('../include/session.php');
+    validateUser();
 
     if (isset($_SESSION['edit_uid']))
     {
         mysqli_query($db, "DELETE FROM users WHERE uid={$_SESSION['edit_uid']}");
         if (mysqli_affected_rows($db) >= 1)
         {
-            print "User '{$_SESSION['edit_username']}' is deleted'";
+            print "User '{$_SESSION['edit_username']}' is deleted";
         }
         else
         {
@@ -64,6 +63,6 @@ else if ($_SERVER['REQUEST_METHOD'] == 'POST')
 }
 else
 {
-    print 'test';
+    print 'This page was accessed in error';
 }
 ?>

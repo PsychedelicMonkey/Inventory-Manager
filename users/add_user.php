@@ -1,12 +1,8 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-    session_start();
-    if (!isset($_SESSION['uid']) && !isset($_SESSION['username']))
-    {
-        print 'You do not have permission to access this page.';
-        exit();
-    }
+    include_once ('../include/session.php');
+    validateUser();
     
     if (!empty($_POST['username']) && !empty($_POST['password']) && !empty($_POST['confirm-password']))
     {
@@ -28,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             exit();
         }
 
-        addUser($username, $password);
+        createUser($username, $password);
     }
     else
     {

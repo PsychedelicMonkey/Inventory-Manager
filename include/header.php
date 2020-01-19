@@ -1,12 +1,7 @@
 <?php
-session_start();
-if (!isset($_SESSION['uid']) && !isset($_SESSION['username']))
-{
-    print 'You do not have permission to access this page.';
-    exit();
-}
-?>
-<?php
+include_once ('session.php');
+validateUser();
+
 include_once ('global.php');
 ?>
 <!DOCTYPE html>

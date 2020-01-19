@@ -387,6 +387,14 @@ tr:nth-child(even) {
     background-color: #dedede;
 }
 
+.table-link {
+    color: blue;
+}
+
+.table-link:hover {
+    border-bottom: 1px dotted blue;
+}
+
 .sort {
     font-size: 22px;
     float: right;

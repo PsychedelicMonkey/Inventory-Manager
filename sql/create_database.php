@@ -17,6 +17,7 @@ mysqli_query($db, "CREATE TABLE IF NOT EXISTS `$dbName`.`users` (
                         `last_login_time` TIMESTAMP NOT NULL ,  
                         `last_login_ip` VARCHAR(15) NOT NULL , 
                         `last_login_ua` VARCHAR(100) NOT NULL , 
+                        `creation_info` LONGTEXT NOT NULL , 
                         PRIMARY KEY (`uid`)) ENGINE = InnoDB;");
 
 createAdmin();
