@@ -15,9 +15,9 @@ mysqli_query($db, "CREATE TABLE IF NOT EXISTS `$dbName`.`users` (
                         `password` VARCHAR(100) NOT NULL , 
                         `salt` VARCHAR(100) NOT NULL , 
                         `last_login_time` TIMESTAMP NOT NULL ,  
-                        `last_login_ip` VARCHAR(15) NOT NULL , 
-                        `last_login_ua` VARCHAR(100) NOT NULL , 
-                        `creation_info` LONGTEXT NOT NULL , 
+                        `last_login_ip` VARCHAR(15) NULL , 
+                        `last_login_ua` VARCHAR(100) NULL , 
+                        `creation_info` JSON NOT NULL , 
                         PRIMARY KEY (`uid`)) ENGINE = InnoDB;");
 
 createAdmin();
@@ -33,7 +33,9 @@ function createAdmin()
     $data = mysqli_fetch_assoc($result);
     if ($data['count'] <= 0)
     {
-        $query = "INSERT INTO `$dbName`.`users` (`uid`, `username`, `password`, `salt`) VALUES (NULL, 'admin', '$password', '$salt')";
+        $query = "INSERT INTO `$dbName`.`users` (`uid`, `username`, `password`, `salt`, 
+                `last_login_time`, `last_login_ip`, `last_login_ua`, `creation_info`) 
+                VALUES (NULL, 'admin', '$password', '$salt', current_timestamp(), '', '', '')";
         mysqli_query($db, $query);
         if (mysqli_affected_rows($db) == 1)
         {
