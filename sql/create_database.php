@@ -15,6 +15,7 @@ mysqli_query($db, "CREATE TABLE IF NOT EXISTS `$dbName`.`users` (
                         `username` VARCHAR(100) NOT NULL , 
                         `password` VARCHAR(100) NOT NULL , 
                         `salt` VARCHAR(100) NOT NULL , 
+                        `enabled` BOOLEAN NOT NULL , 
                         `login_info` JSON NULL , 
                         `last_login_time` TIMESTAMP NOT NULL ,  
                         `creation_info` JSON NULL , 

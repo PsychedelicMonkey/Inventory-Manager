@@ -49,28 +49,39 @@ include_once ('../include/header.php');
             <span id="password-error" class="error"></span>
             <input type="password" id="form-confirm-password" name="confirm-password" placeholder="Confirm Password">
             <span id="password-confirm-error" class="error"></span>
+            <div class="subsection">
+                <h3 class="section-heading">Permissions</h3>
+                <input type="checkbox" id="perm-admin" name="perm-admin"> Make this user administrator <br />
+                <input type="checkbox" id="perm-pic" name="perm-pic"> Allow this user to change their profile picture <br />
+                <input type="checkbox" id="perm-profile" name="perm-profile"> Allow this user to manage their own profile <br />
+                <input type="checkbox" id="perm-other" name="perm-other"> Allow this user to manage other users <br />
+            </div>
             <input type="submit" name="submit" value="Create User">
         </form>
     </div>
 </div>
-<script>
+<script type="text/javascript">
     $(document).ready(function() {
-    $('#form-username').focusout(function() {
-        validateName(this);
-    });
-    
-    $('#form-password').focusout(function() {
-        validatePassword(this);
-    });
+        $('#perm-admin').click(function() {
+            adminPerms($(this), '.subsection:eq(0)');
+        });
 
-    $('#form-confirm-password').focusout(function() {
-        confirmPassword(this);
-    });
+        $('#form-username').focusout(function() {
+            validateName(this);
+        });
 
-    $('form').submit(function(e) {
-        return validateName($('#form-username')) && validatePassword($('#form-password')) && confirmPassword($('#form-confirm-password'));
+        $('#form-password').focusout(function() {
+            validatePassword(this);
+        });
+
+        $('#form-confirm-password').focusout(function() {
+            confirmPassword(this);
+        });
+
+        $('form').submit(function(e) {
+            return validateName($('#form-username')) && validatePassword($('#form-password')) && confirmPassword($('#form-confirm-password'));
+        });
     });
-});
 </script>
 <script src="<?php print DOMAIN; ?>/js/form.js" type="text/javascript"></script>
 

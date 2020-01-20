@@ -20,6 +20,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         if (mysqli_affected_rows($db) == 1)
         {
             $row = mysqli_fetch_assoc($result);
+            if ($row['enabled'] == 0)
+            {
+                print 'This user account is disabled.';
+                exit();
+            }
+
             $test_pass = hash('ripemd128', $row['salt'] . $password);
             if ($test_pass == $row['password'])
             {

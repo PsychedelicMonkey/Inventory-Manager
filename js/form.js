@@ -57,3 +57,18 @@ function confirmPassword(confirm) {
         $('#password-confirm-error').css('display', 'none');
     }
 }
+
+function adminPerms(check, divElm) {
+    var section = $(divElm + ' input[type=checkbox]');
+    if (check.prop('checked')) {
+        section.each(function() {
+            if ($(this).attr('name') == 'perm-admin') return;
+            $(this).attr('disabled', true).prop('checked', true);
+        });
+    }
+    else {
+        section.each(function() {
+            $(this).attr('disabled', false).prop('checked', false);
+        });
+    }
+}

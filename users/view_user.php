@@ -28,6 +28,7 @@ if (isset($_GET['uid']) && is_numeric($_GET['uid']) && ($_GET['uid'] > 0) && !em
             <div class="subsection">
                 <h3 class="section-heading">DANGER ZONE!</h3>
                 <a href="edit_user.php?uid=<?php print $user['uid']; ?>&username=<?php print $user['username']; ?>" class="edit button">Edit User</a>
+                <a href="disable_user.php?uid=<?php print $user['uid']; ?>&username=<?php print $user['username']; ?>" class="disable button">Disable User</a>
                 <a href="delete_user.php?uid=<?php print $user['uid']; ?>&username=<?php print $user['username'] ?>" class="delete button">Delete User</a>
             </div>
         </div>

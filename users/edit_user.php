@@ -19,10 +19,24 @@ if (isset($_GET['uid']) && is_numeric($_GET['uid']) && ($_GET['uid'] > 0) && !em
                 <h2 class="section-heading">Edit <?php print ucfirst($user['username']); ?></h2>
                 <form action="edit_user.php" method="post">
                     <input type="text" name="username" placeholder="Username" value="<?php print $user['username']; ?>">
+                    <div class="subsection">
+                        <h3 class="section-heading">Permissions</h3>
+                        <input type="checkbox" id="perm-admin" name="perm-admin"> Make this user administrator <br />
+                        <input type="checkbox" id="perm-pic" name="perm-pic"> Allow this user to change their profile picture <br />
+                        <input type="checkbox" id="perm-profile" name="perm-profile"> Allow this user to manage their own profile <br />
+                        <input type="checkbox" id="perm-other" name="perm-other"> Allow this user to manage other users <br />
+                    </div>
                     <input type="submit" name="submit" value="Submit Changes">
                 </form>
             </div>
         </div>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#perm-admin').click(function() {
+                    adminPerms($(this), '.subsection:eq(0)');
+                });
+            });
+        </script>
         <script src="<?php print DOMAIN; ?>/js/form.js" type="text/javascript"></script>
     <?php
     include_once ('../include/footer.php');

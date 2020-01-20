@@ -12,7 +12,9 @@ include_once ('../sql/sql.php');
                         ['UID', 'Username']);
                 ?>
 
-                <a class="button add" href="add_user.php">Add New User</a>
+                <div class="subsection">
+                    <a class="button add" href="add_user.php">Add New User</a>
+                </div>
             </div>
         </div>
         <script type="text/javascript" src="<?php print DOMAIN; ?>/js/table.js"></script>

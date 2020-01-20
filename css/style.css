@@ -212,6 +212,10 @@ input[type=submit]:hover, button:hover {
     opacity: 1;
 }
 
+input[type=checkbox] {
+    margin: 6px 0;
+}
+
 button.cancel {
     background-color: red;
 }
@@ -365,7 +369,7 @@ form {
 .subsection {
     border-top: 1px solid #ccc;
     margin-top: 12px;
-    padding: 15px;
+    padding: 15px 0;
 }
 
 .table-heading, .section-heading {
@@ -463,6 +467,10 @@ a.button {
     background-color: rgb(112, 112, 252);
 }
 
+.disable {
+    background-color: rgb(230, 122, 0);
+}
+
 .delete {
     background-color: rgb(212, 12, 12);
 }
@@ -496,6 +504,14 @@ body.dark {
 
 .dark .directory {
     background-color: #222831;
+}
+
+.dark a.table-link {
+    color: rgb(176, 176, 253);
+}
+
+.dark a.table-link:hover {
+    border-bottom: 1px dotted rgb(176, 176, 253);
 }
 
 .dark .directory a {
