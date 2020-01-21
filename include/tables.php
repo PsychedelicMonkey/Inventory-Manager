@@ -54,6 +54,22 @@
             {
                 if ($key == 'username')
                     print "<td><a class=\"table-link\" href=\"view_user.php?uid={$json[$i]['uid']}&username={$json[$i]['username']}\">$value</a></td>";
+                else if ($key == 'enabled')
+                {
+                    $link = '';
+                    $text = '';
+                    if ($value == 1)
+                    {
+                        $link = "disable_user.php?uid={$json[$i]['uid']}&username={$json[$i]['username']}";
+                        $text = ' enabled';
+                    }
+                    else if ($value == 0)
+                    {
+                        $link = "enable_user.php?uid={$json[$i]['uid']}&username={$json[$i]['username']}";
+                        $text = ' disabled';
+                    }
+                    print '<td class="state"><a href="' . $link . '" class="status' . $text . '">' . $text . '</a></td>';
+                }
                 else
                     print '<td>' . $value . '</td>';
             }

@@ -7,9 +7,9 @@ include_once ('../sql/sql.php');
         <div class="body-wrapper">
             <div class="section">
                 <?php
-                $users = query('SELECT uid, username FROM users');
+                $users = query('SELECT uid, username, enabled FROM users');
                 printFunctionTable('user-table', $users, 'Users', 
-                        ['UID', 'Username']);
+                        ['UID', 'Username', 'State']);
                 ?>
 
                 <div class="subsection">

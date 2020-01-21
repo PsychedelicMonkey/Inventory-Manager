@@ -14,7 +14,7 @@ function createUser($uname, $pword)
             'ip'=>$_SERVER['REMOTE_ADDR'], 'ua'=>$_SERVER['HTTP_USER_AGENT']];
     $json = json_encode($arr);
 
-    mysqli_query($db, "INSERT INTO `users` (`username`, `password`, `salt`, `creation_info`) VALUES ('$username', '$password', '$salt', '$json')");
+    mysqli_query($db, "INSERT INTO `users` (`username`, `password`, `salt`, `enabled`, `creation_info`) VALUES ('$username', '$password', '$salt', 1, '$json')");
     if (mysqli_affected_rows($db) == 1)
         print 'success';
     else
