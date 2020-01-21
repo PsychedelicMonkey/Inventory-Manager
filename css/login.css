@@ -11,6 +11,14 @@ body {
     background-color: #2e2e2e;
 }
 
+a {
+    color: blue;
+}
+
+a:hover {
+    border-bottom: 1px dotted blue;
+}
+
 form {
     background-color: #f1f1f1;
     margin: auto;

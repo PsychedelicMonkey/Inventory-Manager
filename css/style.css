@@ -160,11 +160,16 @@ a:hover {
 .modal-wrapper .close {
     float: right;
     font-size: 38px;
+    margin-top: -16px;
 }
 
 .modal-wrapper .close:hover {
     cursor: pointer;
     color: red;
+}
+
+.modal-text {
+    font-size: 18px;
 }
 
 #modal-icon {

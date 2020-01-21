@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 $_SESSION['username'] = $row['username'];
                 $_SESSION['uid'] = $row['uid'];
 
-                header ('Location: dashboard.php');
+                print 'login';
             }
             else
             {
@@ -64,10 +64,17 @@ else
         <title>Login | Inventory Manager</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
         <link rel="stylesheet" type="text/css" href="/css/login.css">
     </head>
     <body>
-        <form class="" action="login.php" method="post">
+        <div id="modal" class="modal">
+            <div class="modal-wrapper">
+                <span class="close">&times;</span>
+                <p class="modal-text"></p>
+            </div>
+        </div>
+        <form id="login-form" action="login.php" method="post">
             <h2 class="heading">Login</h2>
             <label><input type="text" id="form-username" name="username" placeholder="Username"></label>
             <label><span id="username-error" class="error"></span></label>
@@ -80,11 +87,38 @@ else
         <script type="text/javascript">
             $(document).ready(function() {
                 $('form').submit(function(e) {
-                    return validateName($('#form-username')) && loginPassword($('#form-password'));
+                    return validateName($('#form-username')) && loginPassword($('#form-password'));    
                 });
             });
         </script>
         <script src="js/form.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $('#login-form').submit(function(e) {
+                e.preventDefault();
+
+                $.ajax({
+                    type: $(this).attr('method'),
+                    url: $(this).attr('action'),
+                    data: $(this).serialize(),
+                    success: function(data) {
+                        if (data == 'login') {
+                            window.location.href = 'dashboard.php';
+                        }
+                        else {
+                            $('#modal').css('display', 'block');
+                            $('.modal-text:eq(0)').text(data);
+                        }
+                    },
+                    error: function(data) {
+                        alert('Unknown error occured.');
+                    }
+                });
+            });
+
+            $('.close:eq(0)').click(function() {
+                $('#modal').css('display', 'none');
+            });
+        </script>
     </body>
 </html>
 
