@@ -35,6 +35,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 $_SESSION['username'] = $row['username'];
                 $_SESSION['uid'] = $row['uid'];
 
+                if ($_POST['remember_me'] == 'on')
+                {
+                    setcookie('uid', $_SESSION['uid'], (time() + 3600 * 24 * 30));
+                    setcookie('username', $_SESSION['username'], (time() + 3600 * 24 * 30));
+                }
+
                 print 'login';
             }
             else
@@ -80,7 +86,7 @@ else
             <label><span id="username-error" class="error"></span></label>
             <label><input type="password" id="form-password" name="password" placeholder="Password"></label>
             <label><span id="password-error" class="error"></span></label>
-            <label id="remember-me"><input type="checkbox" name="remember-me" value=""> Remember Me</label>
+            <label id="remember-me"><input type="checkbox" name="remember_me"> Remember Me</label>
             <label><input type="submit" name="submit" value="Login"></label>
             <a href="#">Forgot Password?</a>
         </form>
@@ -105,6 +111,7 @@ else
                             window.location.href = 'dashboard.php';
                         }
                         else {
+                            console.log(data);
                             $('#modal').css('display', 'block');
                             $('.modal-text:eq(0)').text(data);
                         }
