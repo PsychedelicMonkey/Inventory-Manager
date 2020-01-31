@@ -1,10 +1,13 @@
 <?php
 session_start();
 
-if (isset($_COOKIE['uid']) && isset($_COOKIE['username']))
+function init()
 {
-    $_SESSION['uid'] = $_COOKIE['uid'];
-    $_SESSION['username'] = $_COOKIE['username'];
+    if (isset($_COOKIE['uid']) && isset($_COOKIE['username']))
+    {
+        $_SESSION['uid'] = $_COOKIE['uid'];
+        $_SESSION['username'] = $_COOKIE['username'];
+    }
 }
 
 function validateUser()

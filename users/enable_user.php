@@ -18,17 +18,16 @@ if (!empty($_GET['username']) && isset($_GET['uid']) && is_numeric($_GET['uid'])
     }
 
     define ('PAGE', 'Manage Users');
-    define ('SUB_PAGE', 'Disable ' . ucfirst($user['username']));
+    define ('SUB_PAGE', 'Enable ' . ucfirst($user['username']));
     include_once ('../include/header.php');
 
     ?>
         <div class="body-wrapper">
             <div class="section">
-                <h2 class="section-heading">Disable <?php print ucfirst($user['username']); ?></h2>
-                <form action="disable_user.php" method="post">
-                    <p class="confirmation-text">Are you sure you want to disable user '<?php print $user['username']; ?>'?</p>
-                    <p class="confirmation-text">You enable this user at any time.</p>
-                    <input type="submit" name="submit" value="Disable this user">
+                <h2 class="section-heading">Enable <?php print ucfirst($user['username']); ?></h2>
+                <form action="enable_user.php" method="post">
+                    <p class="confirmation-text">Are you sure you want to enable user '<?php print $user['username']; ?>'?</p>
+                    <input type="submit" name="submit" value="Enable this user">
                 </form>
             </div>
         </div>
@@ -43,10 +42,10 @@ else if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
     if (isset($_SESSION['uid']))
     {
-        mysqli_query($db, "UPDATE users SET enabled=0 WHERE uid={$_SESSION['edit_uid']} LIMIT 1");
+        mysqli_query($db, "UPDATE users SET enabled=1 WHERE uid={$_SESSION['edit_uid']} LIMIT 1");
         if (mysqli_affected_rows($db) == 1)
         {
-            print 'User: \'' . $_SESSION['edit_username'] . '\' disabled.';
+            print 'User: \'' . $_SESSION['edit_username'] . '\' enabled.';
         }
         else
         {
