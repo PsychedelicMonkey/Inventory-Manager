@@ -1,4 +1,4 @@
-function validateName(username) {
+function validateUsername(username) {
     if ($(username).val() == '') {
         $('#username-error').text('Enter a username').css('display', 'block');
         return false;
@@ -71,4 +71,13 @@ function adminPerms(check, divElm) {
             $(this).attr('disabled', false).prop('checked', false);
         });
     }
+}
+
+function validateName(name, error, message) {
+    if ($(name).val() == '') {
+        $(error).text(message).css('display', 'block');
+        return false;
+    }
+    $(error).css('display', 'none');
+    return true;
 }

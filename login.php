@@ -93,7 +93,7 @@ else
         <script type="text/javascript">
             $(document).ready(function() {
                 $('form').submit(function(e) {
-                    return validateName($('#form-username')) && loginPassword($('#form-password'));    
+                    return validateUsername($('#form-username')) && loginPassword($('#form-password'));
                 });
             });
         </script>

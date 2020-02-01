@@ -67,7 +67,7 @@ include_once ('../include/header.php');
         });
 
         $('#form-username').focusout(function() {
-            validateName(this);
+            validateUsername(this);
         });
 
         $('#form-password').focusout(function() {
@@ -79,7 +79,7 @@ include_once ('../include/header.php');
         });
 
         $('form').submit(function(e) {
-            return validateName($('#form-username')) && validatePassword($('#form-password')) && confirmPassword($('#form-confirm-password'));
+            return validateUsername($('#form-username')) && validatePassword($('#form-password')) && confirmPassword($('#form-confirm-password'));
         });
     });
 </script>

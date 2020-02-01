@@ -34,7 +34,7 @@ include_once ('global.php');
                     array('Messages', 'envelope'),
                     array('My Profile', 'user'),
                     array('Manage Users', 'users', DOMAIN . '/users/manage_users.php'),
-                    array('Vendors', 'diamond'),
+                    array('Vendors', 'diamond', DOMAIN . '/inventory/vendor/vendor.php'),
                     array('Products', 'tags'),
                     array('Stores', 'shopping-bag'),
                     array('Orders', 'truck'),

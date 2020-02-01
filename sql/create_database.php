@@ -21,8 +21,13 @@ mysqli_query($db, "CREATE TABLE IF NOT EXISTS `$dbName`.`users` (
                         `creation_info` JSON NULL , 
                         PRIMARY KEY (`uid`)) ENGINE = InnoDB;");
 echo "Table: \'users\' created!\n";
-
 createAdmin();
+
+mysqli_query($db, "CREATE TABLE IF NOT EXISTS `$dbName`.`vendors` (
+    `vendor_id` INT NOT NULL AUTO_INCREMENT , 
+    `vendor_name` VARCHAR(50) NOT NULL , 
+    PRIMARY KEY (`vendor_id`)) ENGINE = InnoDB;");
+echo "Table: \'vendors\' created!\n";
 
 function createAdmin()
 {
