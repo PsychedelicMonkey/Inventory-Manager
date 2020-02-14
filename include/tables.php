@@ -80,4 +80,43 @@
         print '</tbody></table>';
     }
 
+    /*
+    * $id = table-id
+    * $json = json of table data
+    * $title = table title
+    * $headings = array of table headings
+    * $link = link to use for each row
+    * $id_tag = id to pass to link
+    * $name_tag = name to pass to link
+    */
+    function createLinkTable($id, $data, $title, $headings, $link, $id_tag, $name_tag)
+    {
+        $json = json_decode($data, true);
+        print "<h2 class=\"table-heading\">$title</h2>";
+        print "<table id=\"$id\">";
+        print '<thead><tr>';
+    
+        foreach ($headings as $heading)
+        {
+            ?>
+            <th> <?php print $heading; ?><i class="sort fa fa-sort<?php ($heading == $headings[0]) ? print '-up' : print ''; ?>"></i></th>
+            <?php
+        }
+    
+        print '</tr></thead><tbody>';
+        for ($i = 0; $i < count($json); $i++)
+        {
+            print '<tr>';
+            foreach ($json[$i] as $key => $value)
+            {
+                if ($key == $id_tag)
+                    continue;
+            
+                print "<td><a class=\"table-link\" href=\"$link?id={$json[$i][$id_tag]}&$name_tag=$value\">$value</a></td>";
+            }
+            print '</tr>';
+        }
+        print '</tbody></table>';
+    }
+
 ?>

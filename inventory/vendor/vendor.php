@@ -8,8 +8,8 @@ include_once ('../../sql/sql.php');
         <div class="body-wrapper">
             <div class="section">
             <?php
-            $result = query("SELECT vendor_name FROM vendors");
-            printTableFromJSON('vendor-table', $result, 'Vendors', ['Vendor Name']);
+            $result = query("SELECT * FROM vendors");
+            createLinkTable('vendor-table', $result, 'Vendors', ['Vendor Name'], 'view_vendor.php', 'vendor_id', 'vendor_name');
             ?>
                 <div class="subsection">
                     <a class="button add" href="add_vendor.php">Add New Vendor</a>
