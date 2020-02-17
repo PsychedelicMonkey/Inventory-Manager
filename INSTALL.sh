@@ -1,3 +1,3 @@
 #!/bin/bash
 
-php -f sql/create_database.php
+docker exec -it php-apache php -f sql/create_database.php

@@ -1,5 +1,5 @@
             <div class="footer">
-                <p>&copy; 2014 - 2020 Company Name Ltd.</p>
+                <p>&copy; 2014 - <?php print date('Y'); ?> Company Name Ltd.</p>
                 <p>Inventory Manager v1.0.0</p>
             </div>
         </div><!-- end body -->

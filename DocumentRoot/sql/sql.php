@@ -1,5 +1,5 @@
 <?php
-    $db = mysqli_connect('localhost', 'root', 'password', 'inventory');
+    $db = mysqli_connect('mysql', 'root', 'password', 'inventory');
 
     if (!$db)
     {
@@ -38,6 +38,7 @@
 
     function closeMySQL()
     {
+        global $db;
         mysqli_close($db);
     }
 ?>

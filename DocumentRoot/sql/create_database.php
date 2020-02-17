@@ -1,6 +1,8 @@
 <?php
+require ('include/global.php');
+
 $dbName = 'inventory';
-$db = mysqli_connect('localhost', 'root', 'password');
+$db = mysqli_connect('mysql', 'root', 'password');
 
 if (!$db)
 {
