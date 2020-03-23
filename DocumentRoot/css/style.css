@@ -105,6 +105,7 @@ a:hover {
 .body-wrapper {
     margin: 12px 12px 0px;
     padding: 8px;
+    margin-bottom: 65px;
 }
 
 @media screen and (max-width: 1400px) {
@@ -249,6 +250,7 @@ form {
     display: flex;
     justify-content: space-between;
     overflow: hidden;
+    position: fixed;
     bottom: 0;
     width: 100%;
     background-color: #ddd;

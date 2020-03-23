@@ -30,6 +30,7 @@ else
 {
     define('PAGE', 'Vendors');
     define('SUB_PAGE', 'Add Vendor');
+    include_once ('../../sql/sql.php');
     include_once ('../../include/header.php');
     ?>
         <div class="body-wrapper">
