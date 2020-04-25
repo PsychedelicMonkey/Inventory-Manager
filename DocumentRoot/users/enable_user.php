@@ -24,7 +24,7 @@ if (!empty($_GET['username']) && isset($_GET['uid']) && is_numeric($_GET['uid'])
     ?>
         <div class="body-wrapper">
             <div class="section">
-                <h2 class="section-heading">Enable <?php print ucfirst($user['username']); ?></h2>
+                <h2 class="form-heading">Enable <?php print ucfirst($user['username']); ?></h2>
                 <form action="enable_user.php" method="post">
                     <p class="confirmation-text">Are you sure you want to enable user '<?php print $user['username']; ?>'?</p>
                     <input type="submit" name="submit" value="Enable this user">

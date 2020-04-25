@@ -16,7 +16,7 @@ if (isset($_GET['uid']) && is_numeric($_GET['uid']) && ($_GET['uid'] > 0) && !em
     ?>
         <div class="body-wrapper">
             <div class="section">
-                <h2 class="section-heading">Edit <?php print ucfirst($user['username']); ?></h2>
+                <h2 class="form-heading">Edit <?php print ucfirst($user['username']); ?></h2>
                 <form action="edit_user.php" method="post">
                     <input type="text" name="username" placeholder="Username" value="<?php print $user['username']; ?>">
                     <p><input type="checkbox" name="enabled" <?php if ($user['enabled'] == 1) print 'checked'; ?>> User is enabled</p>

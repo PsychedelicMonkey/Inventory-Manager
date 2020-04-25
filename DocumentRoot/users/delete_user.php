@@ -24,7 +24,7 @@ if (isset($_GET['uid']) && is_numeric($_GET['uid']) && ($_GET['uid'] > 0) && !em
     ?>
         <div class="body-wrapper">
             <div class="section">
-                <h2 class="section-heading">Delete <?php print ucfirst($user['username']); ?></h2>
+                <h2 class="form-heading">Delete <?php print ucfirst($user['username']); ?></h2>
                 <form action="delete_user.php" method="post">
                     <p class="confirmation-text">Are you sure you want to permanently delete user '<?php print $user['username']; ?>'?</p>
                     <p class="confirmation-text">You cannot undo this action.</p>

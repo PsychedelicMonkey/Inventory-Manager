@@ -42,6 +42,11 @@ a:hover {
     border-right: 1px solid #ddd;
     background-color: #2e2e2e;
     overflow: auto;
+    transition: 0.3s ease 0s;
+}
+
+.topbar, .body {
+    transition: 0.3s ease 0s;
 }
 
 .profile-info {
@@ -227,6 +232,8 @@ button.cancel {
 }
 
 form {
+    width: 50%;
+    margin: auto;
     border: 2px solid #ccc;
     border-radius: 8px;
     padding: 8px;
@@ -379,7 +386,11 @@ form {
     padding: 15px 0;
 }
 
-.table-heading, .section-heading {
+.form-heading {
+    text-align: center;
+}
+
+.table-heading, .section-heading, .form-heading {
     margin: 0px 0px 22px;
 }
 

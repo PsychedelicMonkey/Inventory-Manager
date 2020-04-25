@@ -42,7 +42,7 @@ include_once ('../include/header.php');
 
 <div class="body-wrapper">
     <div class="section">
-        <h2 class="section-heading">Add User</h2>
+        <h2 class="form-heading">Add User</h2>
         <form action="add_user.php" method="post">
             <input type="text" id="form-username" name="username" placeholder="Username">
             <span id="username-error" class="error"></span>

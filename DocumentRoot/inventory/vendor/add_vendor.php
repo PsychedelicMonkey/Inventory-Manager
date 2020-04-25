@@ -35,11 +35,10 @@ else
     ?>
         <div class="body-wrapper">
             <div class="section">
-                <h2 class="section-heading"><?php print SUB_PAGE; ?></h2>
+                <h2 class="form-heading"><?php print SUB_PAGE; ?></h2>
                 <form action="add_vendor.php" method="post">
                     <input type="text" id="vendor_name" name="vendor_name" placeholder="Vendor Name">
                     <span id="name-error" class="error"></span>
-                    <p><input type="checkbox" name="enable_vendor" checked="checked"> Vendor is Enabled</p>
                     <input type="submit" name="submit" value="Create Vendor">
                 </form>
             </div>

@@ -5,5 +5,29 @@
 }
 
 .profile-pic {
+    display: block;
     font-size: 160px;
+}
+
+.profile-pic.center {
+    text-align: center;
+}
+
+#fileToUpload {
+    display: block;
+    width: 50%;
+    margin: auto 35%;
+    margin-bottom: 16px;
+}
+
+#confirm-photo {
+    display: block;
+    margin: auto;
+}
+
+#pic-preview {
+    display: block;
+    width: 50%;
+    margin: 12px auto 12px;
+    border-radius: 75%;
 }

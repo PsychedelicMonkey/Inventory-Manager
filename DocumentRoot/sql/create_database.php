@@ -21,6 +21,7 @@ mysqli_query($db, "CREATE TABLE IF NOT EXISTS `$dbName`.`users` (
                         `login_info` JSON NULL , 
                         `last_login_time` TIMESTAMP NOT NULL ,  
                         `creation_info` JSON NULL , 
+                        `profile_pic` VARCHAR(500) NULL ,
                         PRIMARY KEY (`uid`)) ENGINE = InnoDB;");
 echo "Table: \'users\' created!\n";
 createAdmin();

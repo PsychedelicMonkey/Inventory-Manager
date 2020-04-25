@@ -7,6 +7,7 @@
         <!--<script type="text/javascript" src="<?php print DOMAIN; ?>/js/modal.js"></script>-->
         <script type="text/javascript">
         var modal = document.getElementsByClassName('modal')[0];
+        var navbar = document.getElementsByClassName('navbar')[0];
         
         $('#dark-mode').click(function() {
             if ($(this).is(':checked')) {
@@ -24,17 +25,16 @@
         function normalMode() {
             $('body').removeClass('dark');
         }
-        
+
         $('#open-nav').click(function() {
-            if ($('.navbar:eq(0)').is(':visible')) {
-                $('.navbar:eq(0)').css('display', 'none');
-                $('.body:eq(0)').css('marginLeft', '0px');
-                $('.topbar:eq(0)').css('marginLeft', '0px');
-            }
-            else {
-                $('.topbar:eq(0)').css('marginLeft', $('.navbar:eq(0)').width());
-                $('.navbar:eq(0)').css('display', 'block');
-                $('.body:eq(0)').css('marginLeft', $('.navbar:eq(0)').width());
+            if (navbar.style.width == '0%') {
+                $('.navbar:eq(0)').css('width', '12%');
+                $('.body:eq(0)').css('marginLeft', '12%');
+                $('.topbar:eq(0)').css('marginLeft', '12%');
+            } else {
+                $('.navbar:eq(0)').css('width', '0%');
+                $('.body:eq(0)').css('marginLeft', '0%');
+                $('.topbar:eq(0)').css('marginLeft', '0%');
             }
         });
         

@@ -24,7 +24,7 @@ if (!empty($_GET['username']) && isset($_GET['uid']) && is_numeric($_GET['uid'])
     ?>
         <div class="body-wrapper">
             <div class="section">
-                <h2 class="section-heading">Disable <?php print ucfirst($user['username']); ?></h2>
+                <h2 class="form-heading">Disable <?php print ucfirst($user['username']); ?></h2>
                 <form action="disable_user.php" method="post">
                     <p class="confirmation-text">Are you sure you want to disable user '<?php print $user['username']; ?>'?</p>
                     <p class="confirmation-text">You enable this user at any time.</p>

@@ -32,7 +32,7 @@ include_once ('global.php');
                     array('Dashboard', 'tachometer', DOMAIN . '/dashboard.php'),
                     array('Notifications', 'bell'),
                     array('Messages', 'envelope'),
-                    array('My Profile', 'user'),
+                    array('My Profile', 'user', DOMAIN . '/profile/profile.php'),
                     array('Manage Users', 'users', DOMAIN . '/users/manage_users.php'),
                     array('Vendors', 'diamond', DOMAIN . '/inventory/vendor/vendor.php'),
                     array('Products', 'tags'),
