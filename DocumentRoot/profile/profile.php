@@ -7,14 +7,7 @@ include_once ('../include/header.php');
             <div class="section">
                 <h2 class="form-heading">My Profile</h2>
                 <form action="upload_photo.php" method="post" enctype="multipart/form-data">
-                    <?php
-                        /*if (!picExists(true))
-                        {
-                            print '<span class="profile-pic center"><i class="fa fa-user-circle"></i></span>';
-                            print '<img id="pic-preview" src="#" alt="">';
-                        }*/
-                        getProfilePic(true);
-                    ?>
+                    <?php getProfilePic(true, false); ?>
                     <input type="file" name="fileToUpload" id="fileToUpload" onchange="readURL(this);">
                     <input type="submit" name="submit" value="Confirm" id="confirm-photo">
                 </form>
@@ -27,7 +20,7 @@ include_once ('../include/header.php');
 
                     reader.onload = function(e) {
                         $('#pic-preview').attr('src', e.target.result);
-                        $('.profile-pic:eq(0)').css('display', 'none');
+                        $('#default-preview').css('display', 'none');
                     }
 
                     reader.readAsDataURL(input.files[0]);

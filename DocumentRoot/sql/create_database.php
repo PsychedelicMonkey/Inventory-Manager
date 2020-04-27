@@ -1,5 +1,5 @@
 <?php
-require ('include/global.php');
+//require ('include/global.php');
 
 $dbName = 'inventory';
 $db = mysqli_connect('mysql', 'root', 'password');
@@ -32,6 +32,17 @@ mysqli_query($db, "CREATE TABLE IF NOT EXISTS `$dbName`.`vendors` (
     PRIMARY KEY (`vendor_id`)) ENGINE = InnoDB;");
 echo "Table: \'vendors\' created!\n";
 
+mysqli_query($db, "CREATE TABLE IF NOT EXISTS `$dbName`.`categories` ( 
+    `category_id` INT NOT NULL AUTO_INCREMENT , 
+    `category_name` VARCHAR(100) NOT NULL , 
+    PRIMARY KEY (`category_id`)) ENGINE = InnoDB; ");
+echo "Table: \'categories\' created!\n";
+
+/*
+ * Creates the default user
+ * Username: "admin"
+ * Password: "password"
+ */
 function createAdmin()
 {
     global $dbName;

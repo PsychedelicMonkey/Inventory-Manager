@@ -6,11 +6,23 @@
 
 .profile-pic {
     display: block;
-    font-size: 160px;
+    font-size: 150px;
 }
 
 .profile-pic.center {
     text-align: center;
+}
+
+#profile-pic {
+    display: block;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: auto;
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
 }
 
 #fileToUpload {
@@ -27,7 +39,8 @@
 
 #pic-preview {
     display: block;
-    width: 50%;
+    width: 350px;
+    width: 350px;
     margin: 12px auto 12px;
-    border-radius: 75%;
+    border-radius: 50%;
 }

@@ -13,8 +13,8 @@ include_once ('global.php');
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="<?php print DOMAIN; ?>/css/style.css">
-        <link rel="stylesheet" type="text/css" href="<?php print DOMAIN; ?>/css/profile.css">
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <link rel="stylesheet" type="text/css" href="/css/profile.css">
     </head>
     <body>
         <div class="topbar">
@@ -23,26 +23,26 @@ include_once ('global.php');
         </div>
         <div class="navbar">
             <div class="profile-info">
-                <span id="user-icon"><i class="fa fa-fw fa-user-circle"></i></span>
-                <?php //getProfilePic(false); ?>
+                <?php getProfilePic(false, true, NULL); ?>
                 <span id="username"><?php print ucfirst($_SESSION['username']); ?></span>
             </div>
             <ul>
             <?php
                 $link = "";
                 $items = array(
-                    array('Dashboard', 'tachometer', DOMAIN . '/dashboard.php'),
+                    array('Dashboard', 'tachometer', '/dashboard.php'),
                     array('Notifications', 'bell'),
                     array('Messages', 'envelope'),
-                    array('My Profile', 'user', DOMAIN . '/profile/profile.php'),
-                    array('Manage Users', 'users', DOMAIN . '/users/manage_users.php'),
-                    array('Vendors', 'diamond', DOMAIN . '/inventory/vendor/vendor.php'),
+                    array('My Profile', 'user', '/profile/profile.php'),
+                    array('Manage Users', 'users', '/users/manage_users.php'),
+                    array('Vendors', 'diamond', '/inventory/vendor/vendor.php'),
+                    array('Categories', 'book'),
                     array('Products', 'tags'),
                     array('Stores', 'shopping-bag'),
                     array('Orders', 'truck'),
                     array('Stats', 'bar-chart'),
                     array('Settings', 'cog'),
-                    array('Log Out', 'sign-out', DOMAIN . '/logout.php')
+                    array('Log Out', 'sign-out', '/logout.php')
                 );
 
                 for ($i = 0; $i < sizeof($items); $i++)

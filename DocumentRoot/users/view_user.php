@@ -8,13 +8,14 @@ if (isset($_GET['uid']) && is_numeric($_GET['uid']) && ($_GET['uid'] > 0) && !em
     
     define ('PAGE', 'Manage Users');
     define ('SUB_PAGE', 'Profile: ' . ucfirst($user['username']));
+    include_once ('../include/includes.php');
     include_once ('../include/header.php');
 ?>
     <div class="body-wrapper">
         <div class="section">
             <div class="user-page-info">
-                <span class="profile-pic"><i class="fa fa-user-circle"></i></span>
-                <h2 class="section-heading"><?php print ucfirst($user['username']); ?></h2>
+                <?php getProfilePic(false, false, $_GET['uid']); ?>
+                <h2 class="section-heading username"><?php print ucfirst($user['username']); ?></h2>
             </div>
             <table class="even">
                 <tbody class="dual">
