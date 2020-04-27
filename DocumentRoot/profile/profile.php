@@ -1,14 +1,12 @@
 <?php
 define ('PAGE', 'My Profile');
+include_once ('../include/includes.php');
 include_once ('../include/header.php');
-include_once ('../include/tables.php');
-include_once ('../sql/sql.php');
-include_once ('../include/picture.php');
 ?>
         <div class="body-wrapper">
             <div class="section">
                 <h2 class="form-heading">My Profile</h2>
-                <form action="upload-photo.php" method="post" enctype="multipart/form-data">
+                <form action="upload_photo.php" method="post" enctype="multipart/form-data">
                     <?php
                         /*if (!picExists(true))
                         {

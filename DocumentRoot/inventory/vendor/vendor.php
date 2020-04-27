@@ -1,8 +1,7 @@
 <?php
 define ('PAGE', 'Vendors');
+include_once ('../../include/includes.php');
 include_once ('../../include/header.php');
-include_once ('../../include/tables.php');
-include_once ('../../sql/sql.php');
 ?>
 
         <div class="body-wrapper">

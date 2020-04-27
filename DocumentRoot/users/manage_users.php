@@ -1,8 +1,7 @@
 <?php
 define ('PAGE', 'Manage Users');
 include_once ('../include/header.php');
-include_once ('../include/tables.php');
-include_once ('../sql/sql.php');
+include_once ('../include/includes.php');
 ?>
         <div class="body-wrapper">
             <div class="section">

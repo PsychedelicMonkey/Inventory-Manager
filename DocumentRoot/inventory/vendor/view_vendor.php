@@ -1,5 +1,5 @@
 <?php
-include_once ('../../sql/sql.php');
+include_once ('../../include/includes.php');
 if (isset($_GET['id']) && is_numeric($_GET['id']) && $_GET['id'] > 0 && isset($_GET['vendor_name']))
 {
     define('PAGE', 'Vendors');

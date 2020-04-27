@@ -1,8 +1,7 @@
 <?php 
 define ('PAGE', 'Dashboard');
 include_once ('include/header.php');
-include_once ('include/tables.php');
-include_once ('sql/sql.php');
+include_once ('include/includes.php');
 ?>
             <div id="modal" class="modal">
                 <div class="modal-wrapper">

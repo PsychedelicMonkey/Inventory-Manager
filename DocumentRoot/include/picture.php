@@ -1,10 +1,13 @@
 <?php
-include_once ('session.php');
-include_once ('../sql/sql.php');
+include_once ('includes.php');
+
+define ('DIR', DOMAIN . '/assets/profilepics/' . $_SESSION['uid'] . '/');
 
 /*
  * Check if user has a profile picture saved in DB
  * $preview: Boolean for uploading a pic
+ *      - Set 'true' if the function is used in the 'upload photo' page
+ *      - Set 'false' if the function is used anywhere else 
  */
 function getProfilePic($preview)
 {
@@ -14,16 +17,21 @@ function getProfilePic($preview)
     $arr = mysqli_fetch_assoc($result);
     if ($arr['profile_pic'] != NULL)
     {
+        $photo = DIR . $arr['profile_pic'];
         if ($preview)
-            print '<img id="pic-preview" src="' . $arr['profile_pic'] . '" alt="">';
+            print '<img id="pic-preview" src="' . $photo . '" alt="">';
         else
-            print '<img id="profile-pic" src="' . $arr['profile_pic'] . '" alt="">';
+            print '<img id="profile-pic" src="' . $photo . '" alt="">';
     }
     else
     {
-        print '<span class="profile-pic center"><i class="fa fa-user-circle"></i></span>';
-        if ($preview) 
+        if ($preview)
+        {
+            print '<span class="profile-pic center"><i class="fa fa-user-circle"></i></span>';
             print '<img id="pic-preview" src="#" alt="">';
+        }
+        else
+            print '<span id="user-icon"><i class="fa fa-fw fa-user-circle"></i></span>';
     }
 }
 ?>

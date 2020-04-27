@@ -1,12 +1,11 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-    include_once ('../../include/session.php');
+    include_once ('../../include/includes.php');
     validateUser();
 
     if (!empty($_POST['vendor_name']))
     {
-        include_once ('../../sql/sql.php');
         $name = mysqli_real_escape_string($db, strip_tags($_POST['vendor_name']));
         
         if (existsInDB("SELECT * FROM vendors WHERE vendor_name LIKE '$name'"))
@@ -30,7 +29,7 @@ else
 {
     define('PAGE', 'Vendors');
     define('SUB_PAGE', 'Add Vendor');
-    include_once ('../../sql/sql.php');
+    include_once ('../../include/includes.php');
     include_once ('../../include/header.php');
     ?>
         <div class="body-wrapper">

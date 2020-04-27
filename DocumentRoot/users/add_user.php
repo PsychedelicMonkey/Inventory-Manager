@@ -36,7 +36,7 @@ else
 
 define ('PAGE', 'Manage Users');
 define ('SUB_PAGE', 'Add New User');
-include_once ('../sql/sql.php');
+include_once ('../include/includes.php');
 include_once ('../include/header.php');
 ?>
 

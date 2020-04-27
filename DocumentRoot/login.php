@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
     if (!empty($_POST['username']) && !empty($_POST['password']))
     {
-        include_once ('sql/sql.php');
+        include_once ('include/sql.php');
 
         $username = mysqli_real_escape_string($db, strip_tags($_POST['username']));
         $password = mysqli_real_escape_string($db, strip_tags($_POST['password']));

@@ -1,5 +1,5 @@
 <?php
-include_once ('../sql/sql.php');
+include_once ('../include/includes.php');
 
 if (isset($_GET['uid']) && is_numeric($_GET['uid']) && ($_GET['uid'] > 0) && !empty($_GET['username']))
 {

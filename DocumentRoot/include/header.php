@@ -2,6 +2,7 @@
 include_once ('session.php');
 validateUser();
 
+include_once ('includes.php');
 include_once ('global.php');
 ?>
 <!DOCTYPE html>
@@ -23,6 +24,7 @@ include_once ('global.php');
         <div class="navbar">
             <div class="profile-info">
                 <span id="user-icon"><i class="fa fa-fw fa-user-circle"></i></span>
+                <?php //getProfilePic(false); ?>
                 <span id="username"><?php print ucfirst($_SESSION['username']); ?></span>
             </div>
             <ul>

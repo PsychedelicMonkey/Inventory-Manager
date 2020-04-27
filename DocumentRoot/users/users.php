@@ -1,7 +1,5 @@
 <?php
-include_once ('../sql/sql.php');
-include_once ('../include/session.php');
-include_once ('../include/global.php');
+include_once ('../include/includes.php');
 
 function createUser($uname, $pword)
 {
