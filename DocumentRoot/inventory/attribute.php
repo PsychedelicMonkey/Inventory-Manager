@@ -3,15 +3,15 @@
 class Attribute
 {
     public $type;
-    private $id;
-    private $name;
-    private $placeholder;
+    protected $id;
+    protected $name;
+    protected $placeholder;
     private $submit;
 
-    private $page;
+    protected $page;
     private $sub_page;
 
-    private $mysql_table;
+    protected $mysql_table;
 
     public $landing_table = array();
     public $add_button_title;
@@ -19,14 +19,14 @@ class Attribute
     public function __construct($type)
     {
         $this->type = $type;
-        $this->setValues();
+        $this->init();
     }
 
     public function __destruct()
     {
     }
 
-    private function setValues()
+    private function init()
     {
         $this->id = $this->type . '_id';
         $this->name = $this->type . '_name';
@@ -43,18 +43,30 @@ class Attribute
             $this->page = ucfirst('Categories');
             $this->mysql_table = 'categories';
         }
+        else if ($this->type == 'store')
+        {
+            $this->page = ucfirst('Stores');
+            $this->mysql_table = 'stores';
+        }
         else
             $this->page = ucfirst($this->type);
             
         $this->sub_page = 'Add ' . ucfirst($this->type);
-
-        $this->landing_table = array(
-            "title" => $this->page,
-            "headings" => array($this->placeholder),
-            "tags" => array("id" => $this->id, "name" => $this->name)
-        );
-
         $this->add_button_title = 'Add New ' . ucfirst($this->type);
+    }
+
+    public function printTable()
+    {
+        $result = query($this->selectAllQuery());
+        
+        createLinkTable($this->type . '-table', 
+            $result, 
+            $this->page, 
+            array($this->placeholder),
+            'view_vendor.php', 
+            $this->id,
+            $this->name
+        );
     }
 
     public function getType()

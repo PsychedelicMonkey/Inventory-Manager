@@ -111,8 +111,11 @@
             {
                 if ($key == $id_tag)
                     continue;
-            
-                print "<td><a class=\"table-link\" href=\"$link?id={$json[$i][$id_tag]}&$name_tag=$value\">$value</a></td>";
+                    
+                if ($key == $name_tag)
+                    print "<td><a class=\"table-link\" href=\"$link?id={$json[$i][$id_tag]}&$name_tag=$value\">$value</a></td>";
+                else
+                    print "<td>$value</td>";
             }
             print '</tr>';
         }

@@ -24,8 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
             </div>
             <script type="text/javascript">
                 $(document).ready(function() {
-                    $('#vendor_name').focusout(function() {
-                          validateName(this, $('#name-error'), 'Enter a vendor name')
+                    $('#<?php print $_GET['attr']; ?>_name').focusout(function() {
+                          validateName(this, $('#name-error'), 'Enter a <?php print $_GET['attr']; ?> name')
                     });
                 });
             </script>
@@ -51,16 +51,16 @@ else if ($_SERVER['REQUEST_METHOD'] == 'POST')
         include_once ('attribute.php');
         $attr = new Attribute($_GET['attr']);
 
-        if (!empty($_POST[$attr->getName()]))
+        if (!empty( $_POST[ $attr->getName() ] ))
         {
-            $name = mysqli_real_escape_string($db, strip_tags($_POST[$attr->getName()]));
+            $name = mysqli_real_escape_string($db, strip_tags( $_POST[ $attr->getName() ] ));
 
             if (existsInDB("SELECT * FROM {$attr->getMySQLTableName()} WHERE {$attr->getName()} LIKE '$name'"))
             {
                 print "Vendor '$name' already exists.";
                 exit();
             }
-            
+
             $query = "INSERT INTO `{$attr->getMySQLTableName()}` (`{$attr->getId()}`, `{$attr->getName()}`) VALUES (NULL, '$name')";
         }
         else
