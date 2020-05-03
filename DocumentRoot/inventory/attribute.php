@@ -37,23 +37,24 @@ class Attribute
         $this->placeholder = ucfirst($this->type) . ' Name';
         $this->submit = 'Create ' . ucfirst($this->type);
 
-        if ($this->type == 'vendor')
+        switch ($this->type)
         {
-            $this->page = ucfirst('Vendors');
-            $this->mysql_table = 'vendors';
+            case 'vendor':
+                $this->page = 'Vendors';
+                $this->mysql_table = 'vendors';
+            break;
+            case 'category':
+                $this->page = 'Categories';
+                $this->mysql_table = 'categories';
+            break;
+            case 'store':
+                $this->page = 'Stores';
+                $this->mysql_table = 'stores';
+            break;
+            default:
+                $this->page = ucfirst($this->type);
+            break;
         }
-        else if ($this->type == 'category')
-        {
-            $this->page = ucfirst('Categories');
-            $this->mysql_table = 'categories';
-        }
-        else if ($this->type == 'store')
-        {
-            $this->page = ucfirst('Stores');
-            $this->mysql_table = 'stores';
-        }
-        else
-            $this->page = ucfirst($this->type);
             
         $this->sub_page = 'Add ' . ucfirst($this->type);
         $this->add_button_title = 'Add New ' . ucfirst($this->type);

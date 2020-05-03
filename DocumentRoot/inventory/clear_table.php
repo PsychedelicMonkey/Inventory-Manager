@@ -29,7 +29,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
                 </form>
             </div>
         </div>
+        <script type="text/javascript">
+            $('form:eq(0)').submit(function(e) {
+                e.preventDefault();
 
+                $.ajax({
+                    type: $(this).attr('method'),
+                    url: $(this).attr('action'),
+                    data: $(this).serialize(),
+                    success: function(data) {
+                        alert(data);
+                        window.location.href = 'landing_page.php?attr=<?php print $attr->type; ?>';
+                    },
+                    error: function(data) {
+                        alert('Unknown error occurred.');
+                    }
+                });
+            });
+        </script>
         <?php
     }
     else

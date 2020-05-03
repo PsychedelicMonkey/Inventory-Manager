@@ -19,8 +19,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
                 </div>
             </div>
             <?php $attr->jsErrors(); ?>
-            <script src="<?php print DOMAIN; ?>/js/form.js" type="text/javascript"></script>
+            <script src="../js/form.js" type="text/javascript"></script>
+            <script type="text/javascript">
+                $('form:eq(0)').submit(function(e) {
+                    e.preventDefault();
 
+                    $.ajax({
+                        type: $(this).attr('method'),
+                        url: $(this).attr('action'),
+                        data: $(this).serialize(),
+                        success: function(data) {
+                            if (data == 'success') {
+                                var str = $('#<?php print $attr->getName(); ?>').val();
+                                alert('<?php print ucfirst($attr->type); ?> \'' + str + '\' successfully created');
+                                window.location.href = 'landing_page.php?attr=<?php print $attr->type; ?>';
+                            }
+                            else if (data == 'failed') {
+                                alert('Query failed');
+                            }
+                            else {
+                                alert(data);
+                            }
+                        },
+                        error: function(data) {
+                            alert('Unknown error occurred.');
+                        }
+                    });
+                });
+            </script>
         <?php
         include_once ('../include/footer.php');
     }
@@ -47,7 +73,7 @@ else if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
             if (existsInDB("SELECT * FROM {$attr->getMySQLTableName()} WHERE {$attr->getName()} LIKE '$name'"))
             {
-                print "Vendor '$name' already exists.";
+                print ucfirst($attr->type) . ": '$name' already exists.";
                 exit();
             }
 
