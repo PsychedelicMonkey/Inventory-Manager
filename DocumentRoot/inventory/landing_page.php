@@ -2,12 +2,8 @@
 if (isset($_GET['attr']))
 {
     include_once ('attribute.php');
-    include_once ('store.php');
 
-    if ($_GET['attr'] == 'store')
-        $attr = new Store();
-    else
-        $attr = new Attribute($_GET['attr']);
+    $attr = getAttribute($_GET['attr']);
 
     define ('PAGE', $attr->getPage());
 
@@ -18,19 +14,7 @@ if (isset($_GET['attr']))
     <div class="body-wrapper">
         <a class="button add" href="add.php?attr=<?php print $_GET['attr']; ?>"><?php print $attr->add_button_title; ?></a>
         <div class="section">
-        <?php
-        $attr->printTable();
-        /*$result = query($attr->selectAllQuery());
-        //createLinkTable('vendor-table', $result, 'Vendors', ['Vendor Name'], 'view_vendor.php', 'vendor_id', 'vendor_name');
-        createLinkTable($_GET['attr'] . '-table', 
-            $result, 
-            $attr->landing_table['title'], 
-            $attr->landing_table['headings'], 
-            'view_vendor.php', 
-            $attr->landing_table['tags']['id'], 
-            $attr->landing_table['tags']['name']
-        );*/
-        ?>
+        <?php $attr->printTable(); ?>
         </div>
     </div>
     <script type="text/javascript" src="<?php print DOMAIN; ?>/js/table.js"></script>

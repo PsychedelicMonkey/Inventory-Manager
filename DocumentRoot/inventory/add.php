@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
     {
         include_once ('attribute.php');
         
-        $attr = new Attribute($_GET['attr']);
+        $attr = getAttribute($_GET['attr']);
         define ('PAGE', $attr->getPage());
         define ('SUB_PAGE', $attr->getSubPage());
 
@@ -15,20 +15,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
             <div class="body-wrapper">
                 <div class="section">
                     <h2 class="form-heading"><?php print SUB_PAGE; ?></h2>
-                    <form action="add.php?attr=<?php print $_GET['attr']; ?>" method="post">
-                        <input type="text" id="<?php print $attr->getName(); ?>" name="<?php print $attr->getName(); ?>" placeholder="<?php print $attr->getPlaceholder(); ?>">
-                        <span id="name-error" class="error"></span>
-                        <input type="submit" name="submit" value="<?php print $attr->getSubmitValue(); ?>">
-                    </form>
+                    <?php $attr->printAddForm(); ?>
                 </div>
             </div>
-            <script type="text/javascript">
-                $(document).ready(function() {
-                    $('#<?php print $_GET['attr']; ?>_name').focusout(function() {
-                          validateName(this, $('#name-error'), 'Enter a <?php print $_GET['attr']; ?> name')
-                    });
-                });
-            </script>
+            <?php $attr->jsErrors(); ?>
             <script src="<?php print DOMAIN; ?>/js/form.js" type="text/javascript"></script>
 
         <?php
@@ -49,11 +39,11 @@ else if ($_SERVER['REQUEST_METHOD'] == 'POST')
         validateUser();
 
         include_once ('attribute.php');
-        $attr = new Attribute($_GET['attr']);
+        $attr = getAttribute($_GET['attr']);
 
         if (!empty( $_POST[ $attr->getName() ] ))
         {
-            $name = mysqli_real_escape_string($db, strip_tags( $_POST[ $attr->getName() ] ));
+            $name = sanitize($_POST[ $attr->getName() ]);
 
             if (existsInDB("SELECT * FROM {$attr->getMySQLTableName()} WHERE {$attr->getName()} LIKE '$name'"))
             {
@@ -61,7 +51,7 @@ else if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 exit();
             }
 
-            $query = "INSERT INTO `{$attr->getMySQLTableName()}` (`{$attr->getId()}`, `{$attr->getName()}`) VALUES (NULL, '$name')";
+            $query = $attr->getInsertQuery();
         }
         else
         {
