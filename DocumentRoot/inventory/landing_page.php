@@ -13,6 +13,7 @@ if (isset($_GET['attr']))
 
     <div class="body-wrapper">
         <a class="button add" href="add.php?attr=<?php print $_GET['attr']; ?>"><?php print $attr->add_button_title; ?></a>
+        <a class="button delete" href="clear_table.php?attr=<?php print $_GET['attr']; ?>"><?php print $attr->clear_button; ?></a>
         <div class="section">
         <?php $attr->printTable(); ?>
         </div>

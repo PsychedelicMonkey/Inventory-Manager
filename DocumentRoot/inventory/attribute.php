@@ -18,6 +18,7 @@ class Attribute
 
     public $landing_table = array();
     public $add_button_title;
+    public $clear_button;
 
     public function __construct($type)
     {
@@ -56,6 +57,7 @@ class Attribute
             
         $this->sub_page = 'Add ' . ucfirst($this->type);
         $this->add_button_title = 'Add New ' . ucfirst($this->type);
+        $this->clear_button = 'Clear ' . ucfirst($this->type) . ' table';
 
         $this->insert_query = "INSERT INTO `{$this->getMySQLTableName()}` (`{$this->getId()}`, `{$this->getName()}`) VALUES (NULL, '{$_POST[$this->name]}')";
     }
@@ -145,6 +147,11 @@ class Attribute
     public function getPage()
     {
         return $this->page;
+    }
+
+    public function setSubPage($sub_page)
+    {
+        $this->sub_page = $sub_page;
     }
 
     public function getSubPage()
