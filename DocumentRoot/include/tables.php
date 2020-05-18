@@ -111,9 +111,15 @@
             {
                 if ($key == $id_tag)
                     continue;
-                    
+                
+                $str = "";
+                if (strpos($link, 'view.php') !== false)
+                    $str = '&';
+                else
+                    $str = '?';
+
                 if ($key == $name_tag)
-                    print "<td><a class=\"table-link\" href=\"$link?id={$json[$i][$id_tag]}&$name_tag=$value\">$value</a></td>";
+                    print "<td><a class=\"table-link\" href=\"$link" . $str . "id={$json[$i][$id_tag]}&$name_tag=$value\">$value</a></td>";
                 else
                     print "<td>$value</td>";
             }

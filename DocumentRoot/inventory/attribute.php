@@ -71,10 +71,21 @@ class Attribute
             $result, 
             $this->page, 
             array($this->placeholder),
-            'view_vendor.php', 
+            "view.php?attr=$this->type", 
             $this->id,
             $this->name
         );
+    }
+
+    public function printViewPage()
+    {
+        ?>
+        <div class="body-wrapper">
+            <div class="section">
+                <h2 class="section-heading"><?php print $_GET[ $this->getName() ] ?></h2>
+            </div>
+        </div>
+        <?php
     }
 
     public function printAddForm()
@@ -113,6 +124,10 @@ class Attribute
 
                     $('#postal_code').focusout(function() {
                         validateName(this, $('#postal-error'), 'Enter a valid postal code')
+                    });
+
+                    $('#phone').focusout(function() {
+                        validateName(this, $('#phone-error'), 'Enter a valid phone number')
                     });
                 <?php } ?>
             });

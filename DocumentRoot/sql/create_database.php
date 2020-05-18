@@ -49,6 +49,7 @@ mysqli_query($db, "CREATE TABLE IF NOT EXISTS `$dbName`.`stores` (
     `store_city` VARCHAR(100) NOT NULL , 
     `store_state` VARCHAR(100) NOT NULL , 
     `postal_code` VARCHAR(7) NOT NULL , 
+    `store_phone` VARCHAR(20) NOT NULL , 
     PRIMARY KEY (`store_id`)) ENGINE = InnoDB; ");
 echo "Table: \'stores\' created!\n";
 

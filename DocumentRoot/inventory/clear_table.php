@@ -48,6 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET')
             });
         </script>
         <?php
+        include_once ('../include/footer.php');
     }
     else
     {
